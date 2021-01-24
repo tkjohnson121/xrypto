@@ -6,6 +6,7 @@ ENV NODE_ENV production
 WORKDIR /xrypto
 
 RUN rm -rf /usr/local/bin/yarn
+RUN rm -rf /usr/local/bin/yarnpkg
 RUN npm install -g yarn
 RUN yarn global add typescript
 
