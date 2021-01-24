@@ -1,0 +1,17 @@
+* 6f8821e (HEAD -> main, origin/main) update coinbase-pro-node to fix ERR_INVALIDCALLBACK
+* 1620ba7 udpate Dockerfile
+* 03be019 udpate Dockerfile
+* afd059c udpate Dockerfile
+* 61f0705 udpate Dockerfile
+* 19273cd syntax update
+* 8876dc2 update coinbase-pro-node
+* 59e06b1 add tulind
+* d43343d modified packages
+* b2931d7 add rimraf and typescript as dependencies
+* 7768b67 update coinbase-pro-node
+* 6af1bac rename bollinger-bands to bbands
+* 2089e7d rename bollinger-bands to bbands
+* e67aee4 add bollinger band startegy
+* 3218c09 add stochastic-rsi
+* be1b91d add email alerts to trader when live
+* 5592c67 re-init
