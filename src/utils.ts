@@ -1,5 +1,9 @@
+import sgMail from '@sendgrid/mail';
 import chalk from 'chalk';
 import { Account, privateClient } from './coinbase';
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
+export const emailClient = sgMail;
 
 export const getDatetime = (val: string | number | Date) => {
   const date = new Date(typeof val === 'number' ? val * 1e-3 : val);

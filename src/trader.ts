@@ -7,7 +7,7 @@ import { Position } from './models/position';
 import { Runner, RunnerProps } from './runner';
 import { SignalProps } from './strategies';
 import { Tick, Ticker } from './ticker';
-import { log } from './utils';
+import { emailClient, log } from './utils';
 
 export class Trader extends Runner {
   constructor(props: RunnerProps & { isLive: boolean; funds: number }) {
@@ -114,6 +114,28 @@ export class Trader extends Runner {
     }
   }
 
+  async sendEmailAlert(subject: string, html: string) {
+    try {
+      const to = process.env.EMAIL || '';
+      const from = process.env.SENDGRID_EMAIL || '';
+
+      log.onInfo(`Alert sent to ${to} from ${from}`);
+
+      return await emailClient.send({
+        subject: '[Xrypto] - ' + subject,
+        to,
+        from,
+        html,
+      });
+    } catch (error) {
+      if (error.response) {
+        this.onError(error.response.body);
+      } else {
+        this.onError(error);
+      }
+    }
+  }
+
   onError(error: ErrorEvent) {
     log.onError(error);
   }
@@ -141,6 +163,13 @@ export class Trader extends Runner {
         price: trade.price,
         size: getSize(),
       });
+
+      if (this.isLive) {
+        await this.sendEmailAlert(
+          `BUY - ${this.product} - ${this.strategyType} - ${this.interval}`,
+          `<pre>${this.printPositions()}</pre>`,
+        );
+      }
     } catch (error) {
       this.onError(error);
     }
@@ -171,6 +200,13 @@ export class Trader extends Runner {
         price: trade.price,
         size: getSize(),
       });
+
+      if (this.isLive) {
+        await this.sendEmailAlert(
+          `SELL - ${this.product} - ${this.strategyType} - ${this.interval}`,
+          `<pre>${this.printPositions()}</pre>`,
+        );
+      }
     } catch (error) {
       this.onError(error);
     }

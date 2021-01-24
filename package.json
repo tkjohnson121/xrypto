@@ -21,6 +21,7 @@
     "changelog": "git log --all --graph --decorate --oneline > CHANGELOG; git add .; git commit -m \"update changelog\"; yarn version; git push --follow-tags; echo \"Released $npm_package_version\""
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
     "@types/uuid": "^8.3.0",
     "chalk": "^4.1.0",
     "coinbase-pro-node": "^2.14.0",
