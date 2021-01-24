@@ -1,3 +1,4 @@
+import { BollingerBands } from './bollinger-bands';
 import { SimpleMACD } from './macd';
 import { RSI } from './rsi';
 import { Simple } from './simple';
@@ -9,12 +10,22 @@ export * from './macd';
 export * from './simple';
 export * from './strategy';
 
-export type StrategyTypes = 'SIMPLE' | 'MACD' | 'STOCH' | 'RSI' | 'STOCH-RSI';
+export type StrategyTypes =
+  | 'SIMPLE'
+  | 'MACD'
+  | 'STOCH'
+  | 'RSI'
+  | 'STOCH-RSI'
+  | 'BBANDS';
 
 export function StratFactory(type: StrategyTypes, data: StrategyProps) {
   switch (type) {
     case 'RSI': {
       return new RSI(data);
+    }
+
+    case 'BBANDS': {
+      return new BollingerBands(data);
     }
 
     case 'STOCH-RSI': {
