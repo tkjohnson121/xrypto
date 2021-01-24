@@ -43,11 +43,12 @@ export class BollingerBands extends Strategy {
     const isHigh = last.upper * highBoundary <= price;
     const isLow = last.lower * lowBoundary >= price;
 
-    log.onInfo(`BBands Value:
+    log.onInfo(
+      `BBands Value:
       \tUpper: ${last.upper}
       \tMiddle: ${last.middle}
-      \tLower: ${last.lower}
-      `);
+      \tLower: ${last.lower}`,
+    );
 
     if (isSpreading && isLow && openPositions.length === 0) {
       const { cost } = await this.getTrade(price);
