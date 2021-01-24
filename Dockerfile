@@ -18,5 +18,4 @@ COPY . ./
 
 RUN yarn build
 
-
 ENTRYPOINT ["node", "dist/index.js"]
