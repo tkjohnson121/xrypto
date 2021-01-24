@@ -167,9 +167,9 @@ code-point-at@^1.0.0:
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
 coinbase-pro-node@^2.17.0:
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/coinbase-pro-node/-/coinbase-pro-node-2.17.0.tgz#bfeef57dd9ba569647a9b2fdcef9aac6fb27f688"
-  integrity sha512-HEK6W34oUjYQbot8KjXrejNSW3U4lJ3LZktF+K1eoqYqIbmH+b3zWuHWbKEpJgHnSfDDaK/2UR2Jk20Cv5VURg==
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/coinbase-pro-node/-/coinbase-pro-node-2.17.1.tgz#6368f0e133bb11d1908d95e3d82ecc04ba4804e8"
+  integrity sha512-7cRZ2GqZ78OiEoudkYcjXVCtuQNM0HVvIE9espJ5Uo5H5TKmJB34cmAieY5nfZw+9WhR9KMsf9RTdYqn12PXNg==
   dependencies:
     "@types/ws" "7.4.0"
     axios "0.21.1"
