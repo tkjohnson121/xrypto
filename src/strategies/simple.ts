@@ -26,6 +26,7 @@ export class Simple extends Strategy {
             price: currentPrice,
             time,
             size: cost,
+            signal: { penu, last },
           });
         }
       }
@@ -45,6 +46,7 @@ export class Simple extends Strategy {
                 position: pos,
                 price: currentPrice,
                 size: pos.enter.size,
+                signal: { penu, last },
               });
             } else if (
               // held for maxDays+ days and
@@ -57,6 +59,7 @@ export class Simple extends Strategy {
                 time,
                 position: pos,
                 size: pos.enter.size,
+                signal: { penu, last },
               });
             }
           }),

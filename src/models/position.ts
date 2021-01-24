@@ -5,7 +5,7 @@ type PositionProps = {
   trade: Trade;
   id: string | number;
   product: string;
-  signal?: PositionSignal;
+  signal: PositionSignal;
 };
 
 export type PositionSignal = { penu: number; last: number };
@@ -24,7 +24,7 @@ export class Position {
   enter: Trade;
   exit?: Trade;
   product: string;
-  signal?: { penu: number; last: number };
+  signal: { penu?: number; last: number };
 
   close(trade: Trade) {
     this.state = 'CLOSED';

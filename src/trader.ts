@@ -162,6 +162,7 @@ export class Trader extends Runner {
         time: trade.time,
         price: trade.price,
         size: getSize(),
+        signal: trade.signal,
       });
 
       if (this.isLive) {

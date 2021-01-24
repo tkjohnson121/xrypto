@@ -13,7 +13,7 @@ export type StrategyProps = {
 
 export type SignalProps = TradeValues & {
   position?: Position;
-  signal?: PositionSignal;
+  signal: PositionSignal;
 };
 
 export type OnSignal = (options: SignalProps) => any;
@@ -91,12 +91,6 @@ export class Strategy {
     }
   }
 
-  getOpenPositions() {
-    return Object.entries(this.positions)
-      .filter(([id, pos]) => pos.state === 'OPEN')
-      .map(([id, pos]) => ({ id, pos }));
-  }
-
   getAllPositions() {
     return Object.entries(this.positions).map(([id, pos]) => ({
       id,
@@ -104,9 +98,13 @@ export class Strategy {
     }));
   }
 
+  getOpenPositions() {
+    return this.getAllPositions().filter(({ pos }) => pos.state === 'OPEN');
+  }
+
   openPosition(
     id: string | number,
-    tradeValues: TradeValues & { size: number; signal?: PositionSignal },
+    tradeValues: TradeValues & { size: number; signal: PositionSignal },
   ) {
     log.onSuccess(`BUY - Opening Position ${id}:
     \tPrice: ${tradeValues.price} ${this.quote}

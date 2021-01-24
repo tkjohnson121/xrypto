@@ -45,6 +45,7 @@ export class SimpleMACD extends Strategy {
           price,
           time,
           size: cost,
+          signal: { penu, last },
         });
       }
     }
@@ -62,6 +63,7 @@ export class SimpleMACD extends Strategy {
             time,
             size: pos.enter.size,
             position: pos,
+            signal: { penu, last },
           });
         } else if (
           // held for max+ days
@@ -74,6 +76,7 @@ export class SimpleMACD extends Strategy {
             time,
             position: pos,
             size: pos.enter.size,
+            signal: { penu, last },
           });
         }
       }),

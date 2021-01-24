@@ -2,11 +2,11 @@ import tulind from 'tulind';
 import { log } from '../utils';
 import { RunProps, Strategy } from './strategy';
 
-export class RSI extends Strategy {
+export class StochasticRSI extends Strategy {
   async run({ sticks, time }: RunProps) {
     const prices = sticks.map((stick) => stick.average());
     const openPositions = this.getOpenPositions();
-    const { indicator } = tulind.indicators.rsi;
+    const { indicator } = tulind.indicators.stochrsi;
     const results = await indicator([prices], [14]);
 
     const kValues = results[0];
@@ -20,14 +20,14 @@ export class RSI extends Strategy {
     const price =
       sticks[sticks.length - 1].close || sticks[sticks.length - 1].open;
 
-    const highBoundary = 70.0;
-    const lowBoundary = 30.0;
+    const highBoundary = 0.7;
+    const lowBoundary = 0.3;
     const isAbove = last > highBoundary;
     const isBelow = last < lowBoundary;
     const wasAbove = penu >= highBoundary;
     const wasBelow = penu <= lowBoundary;
 
-    log.onInfo(`RSI Value: ${last}`);
+    log.onInfo(`STOCH-RSI Value: ${last}`);
 
     if (wasBelow && !isBelow && openPositions.length === 0) {
       const { cost } = await this.getTrade(price);
@@ -46,7 +46,6 @@ export class RSI extends Strategy {
       const startDate = new Date(pos.enter.time);
       const deadline = new Date().setDate(startDate.getDate() + maxDays);
 
-      // price has increased by at least 3%
       if (!isAbove && wasAbove) {
         this.onSellSignal({
           price,
@@ -56,7 +55,7 @@ export class RSI extends Strategy {
           signal: { penu, last },
         });
       } else if (
-        // held for max+ days
+        // held for max days+
         startDate.getTime() < deadline &&
         // price is 3%+ lower than when we bought
         pos.enter.price > price * delta
