@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "paths": {
+      "common": ["common/"],
+      "features": ["features/"],
+      "theme": ["features/theme"],
+      "pages": ["pages/"],
+      "services": ["services/"],
+      "utils": ["utils/"],
+      "types": ["types/"]
+    },
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext",
+    "types": ["node", "@emotion/core", "jest"]
+  },
+  "exclude": ["node_modules/**", "**/*.test.ts"],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "typedocOptions": {
+    "mode": "modules",
+    "out": "docs"
+  }
+}

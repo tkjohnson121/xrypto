@@ -1,0 +1,33 @@
+screenshots/
+node_modules/
+dist/
+.env.*
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+**/cors-app/**
+**/node_modules/**
+**/.cache/**
+
+# production
+**/build/**
+**/dist/**
+**/.next/**
+**/out/**
+**/docs/**
+
+# functions output dir
+packages/controller/functions/lib
+
+# misc
+**/coverage/**
+**/.DS_Store
+**/.env.*
+**/hosting.*
+
+#logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*

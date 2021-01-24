@@ -1,0 +1,7 @@
+screenshots/
+node_modules/
+dist/
+assets/
+web-app/
+cors-app/
+.git/

@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  eth_usd:
+    build: ./
+    command: yarn && tail -f yarn start -t -l -st rsi -i 900 -p eth-usd
+    working_dir: /xrypto/
+
+  eth_btc:
+    build: ./
+    command: yarn && tail -f yarn start -t -l -st rsi -i 900 -p eth-btc
+    working_dir: /xrypto/
+
+  ltc_btc:
+    build: ./
+    command: yarn && tail -f yarn start -t -l -st rsi -i 900 -p ltc-btc
+    working_dir: /xrypto/
+
+  link_btc:
+    build: ./
+    command: yarn && tail -f yarn start -t -l -st rsi -i 900 -p link-btc
+    working_dir: /xrypto/
+
+  eos_btc:
+    build: ./
+    command: yarn && tail -f yarn start -t -l -st rsi -i 900 -p eos-btc
+    working_dir: /xrypto/
