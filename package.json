@@ -24,7 +24,7 @@
     "@sendgrid/mail": "^7.4.2",
     "@types/uuid": "^8.3.0",
     "chalk": "^4.1.0",
-    "coinbase-pro-node": "^2.14.0",
+    "coinbase-pro-node": "^2.17.0",
     "commander": "^6.2.1",
     "dotenv": "^8.2.0",
     "tsdoc": "^0.0.4",
