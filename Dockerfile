@@ -5,7 +5,7 @@ ENV NODE_ENV production
 
 WORKDIR /xrypto
 
-RUN npm install global yarn
+RUN npm install -g yarn
 RUN yarn global add typescript
 
 COPY package.json .
