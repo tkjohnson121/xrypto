@@ -1,4 +1,4 @@
-import { BollingerBands } from './bollinger-bands';
+import { BollingerBands } from './bbands';
 import { SimpleMACD } from './macd';
 import { RSI } from './rsi';
 import { Simple } from './simple';
